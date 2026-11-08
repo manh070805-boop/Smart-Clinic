@@ -1,98 +1,58 @@
-# Smart-Clinic 
-Website quản lý đặt lịch khám và hỗ trợ định hướng chuyên khoa, mô phỏng hoạt động của một cơ sở khám bệnh
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## 1. Vấn đề cần giải quyết 
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-- Bệnh nhân cần tra cứu lịch khám và đặt lịch thuận tiện
-- Cơ sở khám bệnh cần quản lý lịch bác sĩ, phòng khám, lịch hẹn và phối hợp quy trình tiếp nhận, khám bệnh
+## About Laravel
 
-- Hệ thống hỗ trợ chuyển mô tả triệu chứng bằng ngôn ngữ tự nhiên thành thông tin có cấu trúc để bệnh nhân kiểm tra, xác nhận và nhận gợi ý chuyên khoa 
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## 2. Mục tiêu
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-- Hỗ trợ bệnh nhân xem lịch trống, đặt, hủy và đổi lịch khám
-- Quản lý bác sĩ, chuyên khoa, phòng khám và lịch làm việc
-- Kiểm soát trùng lịch, đặt đồng thời và xác nhận lặp
-- Hỗ trợ lễ tân tiếp nhận và bác sĩ cập nhật tiến trình khám 
-- Sử dụng AI để trích xuất thông tin từ mô tả triệu chứng 
-- Gợi ý chuyên khoa bằng bộ quy tắc và hiển thị lý do 
-- Cung cấp báo cáo cơ bản và lịch sử thay đổi quan trọng
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## 3. Người sử dụng
+## Learning Laravel
 
-| Vai trò | Nghiệp vụ chính dự kiến |
-|---|---|
-| Bệnh nhân | Quản lý hồ sơ, khai báo triệu chứng, xem lịch, đặt, hủy và đổi lịch |
-| Lễ tân | Tra cứu lịch hẹn, xác nhận bệnh nhân đến và quản lý danh sách chờ |
-| Bác sĩ | Xem bệnh nhân được phân công và cập nhật tiến trình khám |
-| Quản trị viên | Quản lý tài khoản, phân quyền, danh mục, lịch làm việc và báo cáo |
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-Quyền chi tiết của từng vai trò được xác định trong tài liệu yêu cầu.
+In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## 4. Phạm vi bản chính
+You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
 
-### Tài khoản và phân quyền
-- Đăng ký tài khoản bệnh nhân, đăng nhập và quản lý hồ sơ.
-- Phân quyền cho bốn vai trò.
+## Agentic Development
 
-### Quản lý danh mục
-- Chuyên khoa, bác sĩ, phòng khám và triệu chứng.
+Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
 
-### Quản lý lịch làm việc
-- Ca làm việc, khung giờ và ngày nghỉ.
-- Kiểm tra trùng lịch bác sĩ và phòng khám.
-- Hiển thị lịch còn trống.
+```bash
+composer require laravel/boost --dev
 
-### Quản lý lịch hẹn
-- Đặt, xem, hủy và đổi lịch.
-- Tạo phiếu hẹn.
-- Kiểm soát đặt đồng thời và xác nhận lặp.
+php artisan boost:install
+```
 
-### Tiếp nhận và khám
-- Lễ tân xác nhận bệnh nhân đến, quản lý danh sách chờ.
-- Bác sĩ cập nhật tiến trình khám.
+Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
-### AI và định hướng chuyên khoa
-- Trích xuất thông tin từ mô tả triệu chứng.
-- Cho bệnh nhân kiểm tra, sửa và xác nhận.
-- Tính điểm chuyên khoa bằng bộ quy tắc.
-- Hiển thị lý do gợi ý.
-- Hỗ trợ khai báo thủ công khi AI không khả dụng.
+## Contributing
 
-### Quản trị
-- Báo cáo cơ bản.
-- Ghi lịch sử thay đổi quan trọng.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## 5. Luồng hỗ trợ định hướng
+## Code of Conduct
 
-1. Bệnh nhân nhập mô tả triệu chứng.
-2. AI trích xuất thông tin theo danh mục cho phép.
-3. Bệnh nhân kiểm tra, sửa và xác nhận.
-4. Bộ quy tắc xử lý dữ liệu đã xác nhận.
-5. Hệ thống gợi ý chuyên khoa và hiển thị lý do.
-6. Bệnh nhân chọn bác sĩ, khung giờ và đặt lịch.
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-AI đảm nhiệm trích xuất thông tin.
-Bộ quy tắc đảm nhiệm tính điểm định hướng chuyên khoa.
-Thông tin chưa được đề cập được để trống, không tự xem là phủ nhận.
+## Security Vulnerabilities
 
-## 6. Ngoài phạm vi bản chính
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-- Thanh toán.
-- Đánh giá bác sĩ.
-- Chatbot hỏi đáp.
-- Quản lý nhiều cơ sở.
-- Hồ sơ bệnh án chi tiết.
+## License
 
-## 7. Công nghệ dự kiến sử dụng
-
-- Ngôn ngữ chính: PHP.
-- Framework: Laravel.
-- Cơ sở dữ liệu: MySQL.
-- Giao diện: Blade, Bootstrap và JavaScript.
-
-## 8. Trạng thái dự án
-
-Dự án đang trong giai đoạn xác định yêu cầu và phạm vi.
-Các chức năng trên mô tả kế hoạch bản chính,
-chưa phải danh sách chức năng đã hoàn thành.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
