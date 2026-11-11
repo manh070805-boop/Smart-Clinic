@@ -84,7 +84,7 @@
 
 ### 🔐 PHASE 2: Phân quyền RBAC, Xác thực & Hồ sơ Cá nhân
 
-#### [ ] `T2.1` — Xây dựng Middleware Phân quyền (`RoleMiddleware`) & Điều hướng theo Vai trò
+#### [x] `T2.1` — Xây dựng Middleware Phân quyền (`RoleMiddleware`) & Điều hướng theo Vai trò
 - **Mục tiêu:** Thực thi ma trận quyền `SC02` ở phía máy chủ (Server-side enforcement). Không dựa vào việc ẩn nút trên giao diện.
 - **File tác động:**
   - Tạo `app/Http/Middleware/RoleMiddleware.php`: Kiểm tra vai trò người dùng đang đăng nhập (`role:patient`, `role:receptionist`, `role:doctor`, `role:admin`), trả về `403 Forbidden` nếu sai quyền.
@@ -202,7 +202,7 @@
 | **T1.1** | Đồng bộ Schema Migration (`users`, `doctors`, `schedules`, `appointments`) & Timezone | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
 | **T1.2** | Hoàn thiện 8 Eloquent Models, `$primaryKey`, Relationships & Helpers | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
 | **T1.3** | Viết Seeders dữ liệu mô phỏng chuẩn `SC06` (4 khoa, 5 BS, 15 triệu chứng, Lịch khám) | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
-| **T2.1** | Middleware Phân quyền RBAC 4 vai trò & Điều hướng Dashboard | Phase 2 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T2.1** | Middleware Phân quyền RBAC 4 vai trò & Điều hướng Dashboard | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
