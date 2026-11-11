@@ -12,11 +12,17 @@ class Appointment extends Model
     use HasFactory;
 
     protected $table = 'appointments';
+
     protected $primaryKey = 'appointment_id';
+
     public const STATUS_PENDING = 'pending';
+
     public const STATUS_CHECKED_IN = 'checked_in';
+
     public const STATUS_IN_PROGRESS = 'in_progress';
+
     public const STATUS_COMPLETED = 'completed';
+
     public const STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
@@ -65,7 +71,7 @@ class Appointment extends Model
      */
     public function getStartDateTimeAttribute(): Carbon
     {
-        return Carbon::parse($this->appointment_date->format('Y-m-d') . ' ' . $this->start_time);
+        return Carbon::parse($this->appointment_date->format('Y-m-d').' '.$this->start_time);
     }
 
     /**

@@ -38,15 +38,15 @@
                             <span>Hồ sơ đã đủ điều kiện đặt lịch (CCCD: {{ Auth::user()->cccd }})</span>
                         </div>
                     @else
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-lg border border-amber-200 text-sm font-medium">
+                        <a href="{{ route('profile.edit') }}"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg border border-amber-300 text-sm font-medium transition">
                             <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <span>Hồ sơ chưa có CCCD — Cần cập nhật để đặt lịch (SC03)</span>
-                        </div>
+                            <span>Hồ sơ chưa có CCCD — Bấm vào đây để cập nhật (SC03)</span>
+                        </a>
                     @endif
                 </div>
             </div>
@@ -54,19 +54,22 @@
             <!-- Khối chức năng chính dành cho Bệnh nhân -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Đặt lịch khám -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-emerald-300 transition">
+                <a href="{{ route('patient.booking') }}"
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-emerald-500 hover:shadow-md transition block group">
                     <div
-                        class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                        class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-gray-900">Đặt Lịch Khám (UC_P04)</h4>
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-lg text-gray-900 group-hover:text-emerald-600 transition">Đặt Lịch Khám (UC_P04)</h4>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Mở ngay &rarr;</span>
+                    </div>
                     <p class="text-sm text-gray-600 mt-2">Khai báo triệu chứng để AI hỗ trợ gợi ý chuyên khoa hoặc tự
                         chọn bác sĩ và khung giờ khám còn trống.</p>
-                </div>
+                </a>
 
                 <!-- Phiếu hẹn & Lịch sử -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">

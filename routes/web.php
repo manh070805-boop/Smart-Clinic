@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Specialty;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -53,6 +54,15 @@ Route::middleware(['auth', 'role:patient'])->prefix('patient')->name('patient.')
     Route::get('/dashboard', function () {
         return view('dashboards.patient');
     })->name('dashboard');
+
+    // Luồng Đặt lịch khám: Bắt buộc hồ sơ phải đủ CCCD, SĐT, Ngày sinh (SC03, LH17)
+    Route::middleware('profile.completed')->group(function () {
+        Route::get('/booking', function () {
+            return view('patient.booking', [
+                'specialties' => Specialty::all(),
+            ]);
+        })->name('booking');
+    });
 });
 
 Route::middleware('auth')->group(function () {

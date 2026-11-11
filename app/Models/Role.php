@@ -11,11 +11,15 @@ class Role extends Model
     use HasFactory;
 
     protected $table = 'roles';
+
     protected $primaryKey = 'role_id';
 
     public const ROLE_PATIENT = 'Patient';
+
     public const ROLE_RECEPTIONIST = 'Receptionist';
+
     public const ROLE_DOCTOR = 'Doctor';
+
     public const ROLE_ADMIN = 'Admin';
 
     protected $fillable = [

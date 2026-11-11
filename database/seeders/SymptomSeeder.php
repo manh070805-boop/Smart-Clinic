@@ -50,10 +50,9 @@ class SymptomSeeder extends Seeder
                 [
                     'symptom_name' => $item['name'],
                     'specialty_id' => $item['specialty_id'],
-                    'description' => 'Triệu chứng ' . $item['name'],
+                    'description' => 'Triệu chứng '.$item['name'],
                 ]
             );
         }
     }
 }
-

@@ -19,4 +19,3 @@ class ClinicSeeder extends Seeder
         );
     }
 }
-

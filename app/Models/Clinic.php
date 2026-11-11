@@ -11,6 +11,7 @@ class Clinic extends Model
     use HasFactory;
 
     protected $table = 'clinics';
+
     protected $primaryKey = 'clinic_id';
 
     protected $fillable = [
