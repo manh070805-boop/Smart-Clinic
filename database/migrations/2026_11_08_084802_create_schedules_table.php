@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->time('end_time');
             $table->integer('max_patients')->default(1);
             $table->enum('status', ['available', 'full', 'cancelled'])->default('available');
+            $table->boolean('is_day_off')->default(false);
             $table->timestamps();
 
             $table->foreign('doctor_id')->references('doctor_id')->on('doctors')->onDelete('cascade');

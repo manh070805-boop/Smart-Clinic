@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id('doctor_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('specialty_id');
+            $table->unsignedBigInteger('clinic_id')->nullable();
             $table->string('degree', 100)->nullable();
             $table->integer('experience_years')->nullable();
             $table->text('bio')->nullable();
@@ -18,6 +19,7 @@ return new class extends Migration {
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('specialty_id')->references('specialty_id')->on('specialties')->onDelete('restrict');
+            $table->foreign('clinic_id')->references('clinic_id')->on('clinics')->onDelete('set null');
         });
     }
 
