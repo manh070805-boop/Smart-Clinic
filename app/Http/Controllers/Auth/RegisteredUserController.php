@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -36,7 +37,10 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $patientRole = Role::where('role_name', Role::ROLE_PATIENT)->first();
+
         $user = User::create([
+            'role_id' => $patientRole?->role_id,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
