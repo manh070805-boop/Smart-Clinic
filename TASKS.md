@@ -92,7 +92,7 @@
   - Cập nhật điều hướng tại `/dashboard` trong [`routes/web.php`](routes/web.php) để chuyển người dùng về đúng không gian làm việc của vai trò tương ứng.
 - **Tiêu chí hoàn thành (DoD):** Đăng nhập từng tài khoản mẫu đều vào đúng trang của vai trò đó; truy cập trái phép đường dẫn của vai trò khác bị chặn với mã `403`.
 
-#### [ ] `T2.2` — Quản lý Hồ sơ Bệnh nhân & Ràng buộc CCCD (`UC_P02`, `LH17`)
+#### [x] `T2.2` — Quản lý Hồ sơ Bệnh nhân & Ràng buộc CCCD (`UC_P02`, `LH17`)
 - **Mục tiêu:** Cho phép người dùng cập nhật `name`, `dob`, `phone`, `cccd` và kiểm tra bắt buộc đủ 4 trường này trước khi cho phép đặt lịch.
 - **File tác động:**
   - [`app/Http/Requests/ProfileUpdateRequest.php`](app/Http/Requests/ProfileUpdateRequest.php): Thêm rule validate `cccd` (12 chữ số, unique), `phone` (10-11 số), `dob` (ngày sinh hợp lệ trong quá khứ).
@@ -203,7 +203,7 @@
 | **T1.2** | Hoàn thiện 8 Eloquent Models, `$primaryKey`, Relationships & Helpers | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
 | **T1.3** | Viết Seeders dữ liệu mô phỏng chuẩn `SC06` (4 khoa, 5 BS, 15 triệu chứng, Lịch khám) | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
 | **T2.1** | Middleware Phân quyền RBAC 4 vai trò & Điều hướng Dashboard | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
-| **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ⏳ Chờ thực hiện |

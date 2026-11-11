@@ -4,6 +4,10 @@ namespace Tests\Feature;
 
 use App\Models\Role;
 use App\Models\User;
+use Database\Seeders\ClinicSeeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\SpecialtySeeder;
+use Database\Seeders\UserAndDoctorSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,11 +18,12 @@ class RoleMiddlewareAndDashboardTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->seed(\Database\Seeders\RoleSeeder::class);
-        $this->seed(\Database\Seeders\ClinicSeeder::class);
-        $this->seed(\Database\Seeders\SpecialtySeeder::class);
-        $this->seed(\Database\Seeders\UserAndDoctorSeeder::class);
+        $this->seed(RoleSeeder::class);
+        $this->seed(ClinicSeeder::class);
+        $this->seed(SpecialtySeeder::class);
+        $this->seed(UserAndDoctorSeeder::class);
     }
+
     /**
      * Khách chưa đăng nhập truy cập dashboard sẽ bị chuyển hướng về login.
      */

@@ -1,12 +1,30 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+            {{ __('Thông Tin Hồ Sơ Cá Nhân') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __('Cập nhật thông tin định danh và tài khoản để phục vụ tạo phiếu hẹn và theo dõi hồ sơ khám bệnh.') }}
         </p>
+
+        @if ($user->hasCompleteBookingProfile())
+            <div class="mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-3 text-emerald-900 text-sm">
+                <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1,1 0 00-1.414-1.414L9 10.586 7.707 9.293a1,1 0 00-1.414 1.414l2 2a1,1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <div>
+                    <span class="font-bold text-emerald-800">Hồ sơ đã đạt chuẩn đặt lịch:</span>
+                    <p class="text-xs text-emerald-700 mt-0.5">Đã xác thực CCCD ({{ $user->cccd }}), Số điện thoại ({{ $user->phone }}) và Ngày sinh ({{ $user->dob?->format('d/m/Y') }}).</p>
+                </div>
+            </div>
+        @else
+            <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-3 text-amber-900 text-sm">
+                <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                <div>
+                    <span class="font-bold text-amber-800">Chưa đủ điều kiện đặt lịch khám (SC03 / LH17):</span>
+                    <p class="text-xs text-amber-700 mt-0.5">Bạn bắt buộc phải bổ sung <strong>Số CCCD</strong>, <strong>Số điện thoại</strong> và <strong>Ngày sinh</strong> trước khi đăng ký khám trực tuyến.</p>
+                </div>
+            </div>
+        @endif
     </header>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -17,14 +35,16 @@
         @csrf
         @method('patch')
 
+        <!-- Họ và tên -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Họ và tên')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <!-- Email -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Địa chỉ Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -47,17 +67,44 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <!-- Căn cước công dân (CCCD) -->
+        <div>
+            <div class="flex items-center justify-between">
+                <x-input-label for="cccd" :value="__('Số Căn cước công dân (CCCD)')" />
+                <span class="text-xs text-rose-500 font-semibold">* Bắt buộc để đặt lịch</span>
+            </div>
+            <x-text-input id="cccd" name="cccd" type="text" maxlength="12" class="mt-1 block w-full font-mono tracking-wider" :value="old('cccd', $user->cccd)" placeholder="Ví dụ: 038090001234 (12 chữ số)" autocomplete="off" />
+            <x-input-error class="mt-2" :messages="$errors->get('cccd')" />
+        </div>
+
+        <!-- Số điện thoại -->
+        <div>
+            <x-input-label for="phone" :value="__('Số điện thoại liên hệ')" />
+            <x-text-input id="phone" name="phone" type="tel" class="mt-1 block w-full font-mono" :value="old('phone', $user->phone)" placeholder="Ví dụ: 0912345678" autocomplete="tel" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+        <!-- Ngày sinh -->
+        <div>
+            <x-input-label for="dob" :value="__('Ngày sinh')" />
+            <x-text-input id="dob" name="dob" type="date" class="mt-1 block w-full" :value="old('dob', $user->dob?->format('Y-m-d'))" max="{{ date('Y-m-d') }}" />
+            <x-input-error class="mt-2" :messages="$errors->get('dob')" />
+        </div>
+
+        <div class="flex items-center gap-4 pt-2">
+            <x-primary-button>{{ __('Lưu Thay Đổi') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                    x-init="setTimeout(() => show = false, 3000)"
+                    class="text-sm font-semibold text-emerald-600 flex items-center gap-1"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    {{ __('Đã cập nhật thông tin thành công.') }}
+                </p>
             @endif
         </div>
     </form>

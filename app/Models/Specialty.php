@@ -11,6 +11,7 @@ class Specialty extends Model
     use HasFactory;
 
     protected $table = 'specialties';
+
     protected $primaryKey = 'specialty_id';
 
     protected $fillable = [

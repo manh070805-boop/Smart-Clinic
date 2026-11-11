@@ -11,6 +11,7 @@ class Symptom extends Model
     use HasFactory;
 
     protected $table = 'symptoms';
+
     protected $primaryKey = 'symptom_id';
 
     protected $fillable = [

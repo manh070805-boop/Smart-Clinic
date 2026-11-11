@@ -101,9 +101,9 @@ class UserAndDoctorSeeder extends Seeder
                     'role_id' => $doctorRole?->role_id,
                     'name' => $doc['name'],
                     'password' => $password,
-                    'cccd' => '03809000010' . ($idx + 1),
-                    'phone' => '098111222' . ($idx + 1),
-                    'dob' => '1985-0' . ($idx + 1) . '-10',
+                    'cccd' => '03809000010'.($idx + 1),
+                    'phone' => '098111222'.($idx + 1),
+                    'dob' => '1985-0'.($idx + 1).'-10',
                 ]
             );
 
@@ -146,4 +146,3 @@ class UserAndDoctorSeeder extends Seeder
         );
     }
 }
-

@@ -21,4 +21,3 @@ class RoleSeeder extends Seeder
         }
     }
 }
-

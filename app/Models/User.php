@@ -81,9 +81,9 @@ class User extends Authenticatable
      */
     public function hasCompleteBookingProfile(): bool
     {
-        return !empty($this->name) &&
-               !empty($this->dob) &&
-               !empty($this->phone) &&
-               !empty($this->cccd);
+        return ! empty($this->name) &&
+               ! empty($this->dob) &&
+               ! empty($this->phone) &&
+               ! empty($this->cccd);
     }
 }

@@ -13,10 +13,13 @@ class Schedule extends Model
     use HasFactory;
 
     protected $table = 'schedules';
+
     protected $primaryKey = 'schedule_id';
 
     public const STATUS_AVAILABLE = 'available';
+
     public const STATUS_FULL = 'full';
+
     public const STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
@@ -66,7 +69,8 @@ class Schedule extends Model
             return false;
         }
 
-        $startDateTime = Carbon::parse($this->work_date->format('Y-m-d') . ' ' . $this->start_time);
+        $startDateTime = Carbon::parse($this->work_date->format('Y-m-d').' '.$this->start_time);
+
         return $startDateTime->isFuture();
     }
 
