@@ -155,3 +155,4 @@ class ProfileAndCccdValidationTest extends TestCase
         $response->assertSee($patientWithCccd->cccd);
     }
 }
+

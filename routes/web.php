@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Patient\SymptomAnalysisController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Specialty;
 use Illuminate\Support\Facades\Route;
@@ -59,9 +60,12 @@ Route::middleware(['auth', 'role:patient'])->prefix('patient')->name('patient.')
     Route::middleware('profile.completed')->group(function () {
         Route::get('/booking', function () {
             return view('patient.booking', [
-                'specialties' => Specialty::all(),
+                'specialties' => Specialty::with(['doctors.user', 'doctors.clinic', 'symptoms'])->get(),
             ]);
         })->name('booking');
+
+        // API Phân tích triệu chứng tự nhiên & Gợi ý chuyên khoa (T3.1)
+        Route::post('/symptoms/analyze', SymptomAnalysisController::class)->name('symptoms.analyze');
     });
 });
 
