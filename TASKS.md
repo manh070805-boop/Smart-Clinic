@@ -103,7 +103,7 @@
 
 ### 📅 PHASE 3: Nghiệp vụ Đặt lịch, AI Gợi ý Chuyên khoa & Hủy/Đổi lịch (Patient Flow)
 
-#### [ ] `T3.1` — Xây dựng Dịch vụ Gợi ý Chuyên khoa từ Triệu chứng (`AI & Rule Matcher`)
+#### [x] `T3.1` — Xây dựng Dịch vụ Gợi ý Chuyên khoa từ Triệu chứng (`AI & Rule Matcher`)
 - **Mục tiêu:** Cho phép bệnh nhân nhập mô tả triệu chứng tự nhiên -> trích xuất các triệu chứng khớp với danh mục 15 triệu chứng -> gợi ý chuyên khoa phù hợp nhất.
 - **File tác động:**
   - Tạo `app/Services/SymptomAnalysisService.php`:
@@ -204,7 +204,7 @@
 | **T1.3** | Viết Seeders dữ liệu mô phỏng chuẩn `SC06` (4 khoa, 5 BS, 15 triệu chứng, Lịch khám) | Phase 1 | 🔴 Cao nhất | ✅ Hoàn thành |
 | **T2.1** | Middleware Phân quyền RBAC 4 vai trò & Điều hướng Dashboard | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
-| **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ⏳ Chờ thực hiện |
 | **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
