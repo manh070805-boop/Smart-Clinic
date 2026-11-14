@@ -125,7 +125,7 @@
     - Màn hình hiển thị Phiếu hẹn điện tử sau khi đặt thành công.
 - **Tiêu chí hoàn thành (DoD):** Đặt lịch thành công tạo phiếu hẹn, cập nhật trạng thái slot; chặn toàn bộ các ca không hợp lệ (`LH01`–`LH06`, `LH15`, `LH17`).
 
-#### [ ] `T3.3` — Chức năng Xem lịch sử, Hủy lịch & Đổi lịch của Bệnh nhân (`UC_P05`, `UC_P06`, `LH07`–`LH14`)
+#### [x] `T3.3` — Chức năng Xem lịch sử, Hủy lịch & Đổi lịch của Bệnh nhân (`UC_P05`, `UC_P06`, `LH07`–`LH14`)
 - **Mục tiêu:** Bệnh nhân quản lý lịch hẹn của chính mình, hủy hoặc đổi lịch đúng quy định thời hạn 2 giờ.
 - **File tác động:**
   - Tạo `app/Http/Controllers/Patient/AppointmentController.php`:
@@ -206,7 +206,7 @@
 | **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
-| **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ⏳ Chờ thực hiện |
+| **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ✅ Hoàn thành |
 | **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T4.3** | Phân hệ Admin: Quản lý danh mục, lịch làm việc & Nghỉ đột xuất (`LH16`) | Phase 4 | 🟡 Trung bình | ⏳ Chờ thực hiện |

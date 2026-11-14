@@ -120,10 +120,16 @@
                     </div>
 
                     <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-                        <a href="{{ route('patient.booking') }}"
-                            class="px-5 py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-semibold rounded-xl transition">
-                            + Đặt thêm lịch khám khác
-                        </a>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <a href="{{ route('patient.booking') }}"
+                                class="px-5 py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-sm font-semibold rounded-xl transition">
+                                + Đặt thêm lịch khám khác
+                            </a>
+                            <a href="{{ route('patient.appointments.index') }}"
+                                class="px-5 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-sm font-semibold rounded-xl transition">
+                                Lịch sử & Quản lý lịch hẹn
+                            </a>
+                        </div>
                         <a href="{{ route('patient.dashboard') }}"
                             class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl shadow-sm transition">
                             Hoàn tất & Về Bảng Điều Khiển

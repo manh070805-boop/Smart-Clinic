@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property \Illuminate\Support\Carbon $work_date
+ */
 class Schedule extends Model
 {
     use HasFactory;

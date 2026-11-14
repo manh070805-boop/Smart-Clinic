@@ -72,32 +72,40 @@
                 </a>
 
                 <!-- Phiếu hẹn & Lịch sử -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <a href="{{ route('patient.appointments.index') }}"
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 hover:shadow-md transition block group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
                             </path>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-gray-900">Phiếu Hẹn Của Tôi (UC_P07)</h4>
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition">Phiếu Hẹn Của Tôi (UC_P05)</h4>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700">Xem ngay &rarr;</span>
+                    </div>
                     <p class="text-sm text-gray-600 mt-2">Xem mã phiếu hẹn điện tử, trạng thái tiếp nhận và kết quả khám
                         bệnh đã thực hiện.</p>
-                </div>
+                </a>
 
                 <!-- Hủy / Đổi lịch -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-amber-300 transition">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
+                <a href="{{ route('patient.appointments.index') }}"
+                    class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-amber-500 hover:shadow-md transition block group">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
                             </path>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-gray-900">Hủy & Đổi Lịch Khám (SC03)</h4>
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-lg text-gray-900 group-hover:text-amber-600 transition">Hủy & Đổi Lịch Khám (UC_P06)</h4>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-50 text-amber-700">Quản lý &rarr;</span>
+                    </div>
                     <p class="text-sm text-gray-600 mt-2">Đổi sang khung giờ khác cùng chuyên khoa hoặc hủy lịch trực
                         tuyến nếu còn trước giờ khám tối thiểu 2 giờ.</p>
-                </div>
+                </a>
             </div>
         </div>
     </div>
