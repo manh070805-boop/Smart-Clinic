@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\BookingController;
 use App\Http\Controllers\Patient\SymptomAnalysisController;
 use App\Http\Controllers\ProfileController;
@@ -55,6 +56,12 @@ Route::middleware(['auth', 'role:patient'])->prefix('patient')->name('patient.')
     Route::get('/dashboard', function () {
         return view('dashboards.patient');
     })->name('dashboard');
+
+    // Quản lý lịch sử đặt lịch, hủy lịch & đổi lịch của Bệnh nhân (T3.3)
+    Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
+    Route::get('/appointments/{appointment}/reschedule-slots', [AppointmentController::class, 'rescheduleSlots'])->name('appointments.reschedule-slots');
+    Route::post('/appointments/{appointment}/cancel', [AppointmentController::class, 'cancel'])->name('appointments.cancel');
+    Route::post('/appointments/{appointment}/reschedule', [AppointmentController::class, 'reschedule'])->name('appointments.reschedule');
 
     // Luồng Đặt lịch khám: Bắt buộc hồ sơ phải đủ CCCD, SĐT, Ngày sinh (SC03, LH17)
     Route::middleware('profile.completed')->group(function () {
