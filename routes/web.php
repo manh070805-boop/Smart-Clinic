@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Patient\BookingController;
 use App\Http\Controllers\Patient\SymptomAnalysisController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Specialty;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -58,11 +58,10 @@ Route::middleware(['auth', 'role:patient'])->prefix('patient')->name('patient.')
 
     // Luồng Đặt lịch khám: Bắt buộc hồ sơ phải đủ CCCD, SĐT, Ngày sinh (SC03, LH17)
     Route::middleware('profile.completed')->group(function () {
-        Route::get('/booking', function () {
-            return view('patient.booking', [
-                'specialties' => Specialty::with(['doctors.user', 'doctors.clinic', 'symptoms'])->get(),
-            ]);
-        })->name('booking');
+        Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+        Route::get('/booking/schedules', [BookingController::class, 'schedules'])->name('booking.schedules');
+        Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+        Route::get('/appointments/{appointment}/receipt', [BookingController::class, 'receipt'])->name('booking.receipt');
 
         // API Phân tích triệu chứng tự nhiên & Gợi ý chuyên khoa (T3.1)
         Route::post('/symptoms/analyze', SymptomAnalysisController::class)->name('symptoms.analyze');

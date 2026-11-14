@@ -112,7 +112,7 @@
   - Tạo API/Endpoint nội bộ `POST /patient/symptoms/analyze` để giao diện gọi bất đồng bộ (AJAX/Alpine.js).
 - **Tiêu chí hoàn thành (DoD):** Nhập câu mô tả *"Tôi bị đau họng, ho có đờm và nghẹt mũi"* -> Hệ thống trích xuất đúng triệu chứng và gợi ý chuyên khoa **Tai Mũi Họng**; bệnh nhân vẫn có quyền bỏ qua AI để tự chọn chuyên khoa.
 
-#### [ ] `T3.2` — Xây dựng Service & Luồng Đặt lịch Khám (`UC_P03`, `UC_P04`, `LH01`–`LH06`, `LH15`)
+#### [x] `T3.2` — Xây dựng Service & Luồng Đặt lịch Khám (`UC_P03`, `UC_P04`, `LH01`–`LH06`, `LH15`)
 - **Mục tiêu:** Bệnh nhân tra cứu lịch trống, đặt lịch an toàn với Database Transaction và chống xung đột (Race Condition).
 - **File tác động:**
   - Tạo `app/Services/AppointmentBookingService.php`:
@@ -205,7 +205,7 @@
 | **T2.1** | Middleware Phân quyền RBAC 4 vai trò & Điều hướng Dashboard | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T2.2** | Cập nhật Hồ sơ cá nhân & Chặn đặt lịch khi thiếu CCCD (`LH17`) | Phase 2 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
-| **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ⏳ Chờ thực hiện |
 | **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
