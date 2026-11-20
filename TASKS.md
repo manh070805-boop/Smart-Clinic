@@ -138,7 +138,7 @@
 
 ### 🏥 PHASE 4: Nghiệp vụ Lễ tân, Bác sĩ & Quản trị viên (Staff & Admin Flows)
 
-#### [ ] `T4.1` — Phân hệ Lễ tân: Tiếp nhận (`Check-in`) & Xử lý Vắng mặt (`UC_R01`–`UC_R04`)
+#### [x] `T4.1` — Phân hệ Lễ tân: Tiếp nhận (`Check-in`) & Xử lý Vắng mặt (`UC_R01`–`UC_R04`)
 - **Mục tiêu:** Lễ tân quản lý danh sách hẹn trong ngày, xác nhận bệnh nhân đến hoặc đánh dấu vắng mặt sau 15 phút.
 - **File tác động:**
   - Tạo `app/Http/Controllers/Receptionist/CheckInController.php` & giao diện Lễ tân:
@@ -207,7 +207,7 @@
 | **T3.1** | Service AI Trích xuất triệu chứng & Gợi ý chuyên khoa | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ✅ Hoàn thành |
-| **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ✅ Hoàn thành |
 | **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
 | **T4.3** | Phân hệ Admin: Quản lý danh mục, lịch làm việc & Nghỉ đột xuất (`LH16`) | Phase 4 | 🟡 Trung bình | ⏳ Chờ thực hiện |
 | **T5.1** | Feature Tests Phân quyền RBAC (`PQ01`–`PQ07`) | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |

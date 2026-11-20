@@ -15,6 +15,21 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard') || request()->routeIs('*.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if (Auth::user()->isReceptionist())
+                        <x-nav-link :href="route('receptionist.checkin.index')" :active="request()->routeIs('receptionist.checkin.*')">
+                            Quầy Tiếp Nhận & Check-in
+                        </x-nav-link>
+                    @endif
+
+                    @if (Auth::user()->isPatient())
+                        <x-nav-link :href="route('patient.booking')" :active="request()->routeIs('patient.booking*')">
+                            Đặt Lịch Khám
+                        </x-nav-link>
+                        <x-nav-link :href="route('patient.appointments.index')" :active="request()->routeIs('patient.appointments.*')">
+                            Lịch Hẹn Của Tôi
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
