@@ -4,6 +4,7 @@ use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\BookingController;
 use App\Http\Controllers\Patient\SymptomAnalysisController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Receptionist\CheckInController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -49,6 +50,11 @@ Route::middleware(['auth', 'role:receptionist'])->prefix('receptionist')->name('
     Route::get('/dashboard', function () {
         return view('dashboards.receptionist');
     })->name('dashboard');
+
+    // Tiếp nhận (Check-in), cấp số thứ tự, đánh dấu vắng mặt sau 15 phút & theo dõi nghỉ đột xuất (T4.1)
+    Route::get('/check-in', [CheckInController::class, 'index'])->name('checkin.index');
+    Route::post('/appointments/{appointment}/check-in', [CheckInController::class, 'checkIn'])->name('appointments.check-in');
+    Route::post('/appointments/{appointment}/no-show', [CheckInController::class, 'markNoShow'])->name('appointments.no-show');
 });
 
 // Nhóm route Bệnh nhân (Patient Portal)
