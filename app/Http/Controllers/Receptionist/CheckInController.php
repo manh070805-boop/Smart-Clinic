@@ -17,7 +17,8 @@ class CheckInController extends Controller
 {
     public function __construct(
         private readonly ReceptionistCheckInService $checkInService
-    ) {}
+    ) {
+    }
 
     /**
      * Màn hình Bàn Tiếp Đón Lễ Tân: Tra cứu lịch hẹn theo ngày, Tiếp nhận, Xử lý vắng mặt & Theo dõi nghỉ đột xuất (UC_R01–UC_R04).
