@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Doctor\ExaminationController;
 use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\BookingController;
 use App\Http\Controllers\Patient\SymptomAnalysisController;
@@ -43,6 +44,11 @@ Route::middleware(['auth', 'role:doctor'])->prefix('doctor')->name('doctor.')->g
     Route::get('/dashboard', function () {
         return view('dashboards.doctor');
     })->name('dashboard');
+
+    // Hàng đợi khám bệnh, xem triệu chứng AI & cập nhật tiến trình khám (T4.2)
+    Route::get('/queue', [ExaminationController::class, 'index'])->name('queue.index');
+    Route::post('/appointments/{appointment}/start', [ExaminationController::class, 'startExam'])->name('appointments.start');
+    Route::post('/appointments/{appointment}/complete', [ExaminationController::class, 'completeExam'])->name('appointments.complete');
 });
 
 // Nhóm route Lễ tân (Receptionist Portal)

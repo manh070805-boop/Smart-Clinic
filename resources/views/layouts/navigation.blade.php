@@ -16,6 +16,12 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @if (Auth::user()->isDoctor())
+                        <x-nav-link :href="route('doctor.queue.index')" :active="request()->routeIs('doctor.queue.*')">
+                            Hàng Đợi Khám Bệnh
+                        </x-nav-link>
+                    @endif
+
                     @if (Auth::user()->isReceptionist())
                         <x-nav-link :href="route('receptionist.checkin.index')" :active="request()->routeIs('receptionist.checkin.*')">
                             Quầy Tiếp Nhận & Check-in

@@ -148,7 +148,7 @@
     - Tab theo dõi danh sách các lịch hẹn bị ảnh hưởng do bác sĩ nghỉ đột xuất (`is_affected_by_leave = true`) để liên hệ hỗ trợ bệnh nhân (`UC_R04`, `LH16`).
 - **Tiêu chí hoàn thành (DoD):** Lễ tân tiếp nhận đúng quy trình, không thể đánh dấu vắng mặt khi chưa quá 15 phút.
 
-#### [ ] `T4.2` — Phân hệ Bác sĩ: Hàng đợi Khám & Cập nhật Tiến trình (`UC_D01`–`UC_D03`, `PQ05`–`PQ06`)
+#### [x] `T4.2` — Phân hệ Bác sĩ: Hàng đợi Khám & Cập nhật Tiến trình (`UC_D01`–`UC_D03`, `PQ05`–`PQ06`)
 - **Mục tiêu:** Bác sĩ xem danh sách bệnh nhân của riêng mình trong ca và điều khiển quá trình khám.
 - **File tác động:**
   - Tạo `app/Http/Controllers/Doctor/ExaminationController.php` & giao diện Bác sĩ:
@@ -208,7 +208,7 @@
 | **T3.2** | Luồng Đặt lịch khám (Transaction chống trùng chỗ `LH05` & Tạo phiếu hẹn) | Phase 3 | 🟠 Cao | ✅ Hoàn thành |
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ✅ Hoàn thành |
 | **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ✅ Hoàn thành |
-| **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ⏳ Chờ thực hiện |
+| **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ✅ Hoàn thành |
 | **T4.3** | Phân hệ Admin: Quản lý danh mục, lịch làm việc & Nghỉ đột xuất (`LH16`) | Phase 4 | 🟡 Trung bình | ⏳ Chờ thực hiện |
 | **T5.1** | Feature Tests Phân quyền RBAC (`PQ01`–`PQ07`) | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |
 | **T5.2** | Feature Tests Quy tắc Lịch hẹn & Trạng thái (`LH01`–`LH17`) | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |
