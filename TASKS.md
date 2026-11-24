@@ -158,7 +158,7 @@
     - **Hoàn tất khám (`completeExam`):** Chuyển từ `in_progress` -> `completed`.
 - **Tiêu chí hoàn thành (DoD):** Luồng chuyển trạng thái của bác sĩ tuân thủ chặt chẽ `checked_in` -> `in_progress` -> `completed`.
 
-#### [ ] `T4.3` — Phân hệ Quản trị viên: Quản lý Danh mục, Lịch làm việc & Nghỉ đột xuất (`UC_A01`–`UC_A05`, `LH16`)
+#### [x] `T4.3` — Phân hệ Quản trị viên: Quản lý Danh mục, Lịch làm việc & Nghỉ đột xuất (`UC_A01`–`UC_A05`, `LH16`)
 - **Mục tiêu:** Admin quản lý toàn bộ dữ liệu nền, công bố lịch khám và xử lý tình huống bác sĩ báo nghỉ đột xuất.
 - **File tác động:**
   - Tạo các Controller trong `app/Http/Controllers/Admin/`:
@@ -209,7 +209,7 @@
 | **T3.3** | Xem lịch sử, Hủy lịch & Đổi lịch cho Bệnh nhân (Mốc 2 giờ `LH07`–`LH14`) | Phase 3 | 🟡 Trung bình | ✅ Hoàn thành |
 | **T4.1** | Phân hệ Lễ tân: Tiếp nhận (`Checked-in`) & Đánh dấu Vắng mặt sau 15p | Phase 4 | 🟠 Cao | ✅ Hoàn thành |
 | **T4.2** | Phân hệ Bác sĩ: Hàng đợi khám & Cập nhật `In Progress` -> `Completed` | Phase 4 | 🟠 Cao | ✅ Hoàn thành |
-| **T4.3** | Phân hệ Admin: Quản lý danh mục, lịch làm việc & Nghỉ đột xuất (`LH16`) | Phase 4 | 🟡 Trung bình | ⏳ Chờ thực hiện |
+| **T4.3** | Phân hệ Admin: Quản lý danh mục, lịch làm việc & Nghỉ đột xuất (`LH16`) | Phase 4 | 🟡 Trung bình | ✅ Hoàn thành |
 | **T5.1** | Feature Tests Phân quyền RBAC (`PQ01`–`PQ07`) | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |
 | **T5.2** | Feature Tests Quy tắc Lịch hẹn & Trạng thái (`LH01`–`LH17`) | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |
 | **T5.3** | Format code (`Pint`), Kiểm thử toàn trình & Kịch bản Demo bảo vệ đồ án | Phase 5 | 🟢 Chuẩn bị nghiệm thu | ⏳ Chờ thực hiện |

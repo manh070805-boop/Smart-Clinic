@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CatalogController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ScheduleController as AdminScheduleController;
 use App\Http\Controllers\Doctor\ExaminationController;
 use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\BookingController;
@@ -34,9 +37,20 @@ Route::get('/dashboard', function () {
 
 // Nhóm route Quản trị viên (Admin Portal)
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboards.admin');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // Quản lý danh mục Chuyên khoa, Bác sĩ, Triệu chứng (T4.3 - UC_A02)
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::post('/catalog/specialties', [CatalogController::class, 'storeSpecialty'])->name('catalog.specialties.store');
+    Route::delete('/catalog/specialties/{specialty}', [CatalogController::class, 'destroySpecialty'])->name('catalog.specialties.destroy');
+    Route::post('/catalog/symptoms', [CatalogController::class, 'storeSymptom'])->name('catalog.symptoms.store');
+    Route::delete('/catalog/symptoms/{symptom}', [CatalogController::class, 'destroySymptom'])->name('catalog.symptoms.destroy');
+    Route::post('/catalog/doctors', [CatalogController::class, 'storeDoctor'])->name('catalog.doctors.store');
+
+    // Quản lý lịch làm việc & xử lý bác sĩ nghỉ đột xuất (T4.3 - UC_A03, UC_A04, LH16)
+    Route::get('/schedules', [AdminScheduleController::class, 'index'])->name('schedules.index');
+    Route::post('/schedules', [AdminScheduleController::class, 'store'])->name('schedules.store');
+    Route::post('/schedules/{schedule}/day-off', [AdminScheduleController::class, 'markDayOff'])->name('schedules.day-off');
 });
 
 // Nhóm route Bác sĩ (Doctor Portal)
