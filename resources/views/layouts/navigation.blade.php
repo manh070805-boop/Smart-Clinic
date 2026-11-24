@@ -16,6 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @if (Auth::user()->isAdmin())
+                        <x-nav-link :href="route('admin.catalog.index')" :active="request()->routeIs('admin.catalog.*')">
+                            Danh Mục Y Tế
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.schedules.index')" :active="request()->routeIs('admin.schedules.*')">
+                            Lịch Trực & Nghỉ Đột Xuất
+                        </x-nav-link>
+                    @endif
+
                     @if (Auth::user()->isDoctor())
                         <x-nav-link :href="route('doctor.queue.index')" :active="request()->routeIs('doctor.queue.*')">
                             Hàng Đợi Khám Bệnh
