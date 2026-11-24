@@ -23,7 +23,7 @@ class ReceptionistCheckInService
         $date = $filters['date'] ?? Carbon::today()->toDateString();
         $search = isset($filters['search']) ? trim((string) $filters['search']) : '';
         $status = isset($filters['status']) ? trim((string) $filters['status']) : '';
-        $doctorId = ! empty($filters['doctor_id']) ? (int) $filters['doctor_id'] : null;
+        $doctorId = !empty($filters['doctor_id']) ? (int) $filters['doctor_id'] : null;
 
         $query = Appointment::with(['patient', 'doctor.user', 'doctor.specialty', 'doctor.clinic', 'schedule']);
 
@@ -118,7 +118,7 @@ class ReceptionistCheckInService
      */
     public function checkIn(User $actor, Appointment $appointment): Appointment
     {
-        if (! $actor->isReceptionist()) {
+        if (!$actor->isReceptionist()) {
             throw new AuthorizationException('Chỉ nhân viên Lễ tân mới có quyền tiếp nhận bệnh nhân (PQ07).');
         }
 
@@ -170,7 +170,7 @@ class ReceptionistCheckInService
      */
     public function markNoShow(User $actor, Appointment $appointment): Appointment
     {
-        if (! $actor->isReceptionist()) {
+        if (!$actor->isReceptionist()) {
             throw new AuthorizationException('Chỉ nhân viên Lễ tân mới có quyền đánh dấu vắng mặt.');
         }
 
@@ -186,7 +186,7 @@ class ReceptionistCheckInService
                 ]);
             }
 
-            if (! $lockedAppointment->isNoShowEligible()) {
+            if (!$lockedAppointment->isNoShowEligible()) {
                 throw ValidationException::withMessages([
                     'appointment' => 'Chưa đủ điều kiện đánh dấu vắng mặt. Chỉ được phép đánh dấu vắng mặt khi đã quá giờ bắt đầu khám từ 15 phút trở lên (SC04).',
                 ]);
@@ -208,7 +208,7 @@ class ReceptionistCheckInService
      */
     private function releaseScheduleSlot(?int $scheduleId): void
     {
-        if (! $scheduleId) {
+        if (!$scheduleId) {
             return;
         }
 
@@ -216,7 +216,7 @@ class ReceptionistCheckInService
             ->lockForUpdate()
             ->first();
 
-        if (! $schedule || $schedule->is_day_off || $schedule->status === Schedule::STATUS_CANCELLED) {
+        if (!$schedule || $schedule->is_day_off || $schedule->status === Schedule::STATUS_CANCELLED) {
             return;
         }
 

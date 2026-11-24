@@ -136,10 +136,14 @@
                             class="w-full rounded-lg border-gray-300 text-sm focus:border-amber-500 focus:ring-amber-500">
                             <option value="all" @selected($selectedStatus === 'all')>Tất cả trạng thái</option>
                             <option value="pending" @selected($selectedStatus === 'pending')>Chờ khám (Pending)</option>
-                            <option value="checked_in" @selected($selectedStatus === 'checked_in')>Đã tiếp nhận (Checked-in)</option>
-                            <option value="in_progress" @selected($selectedStatus === 'in_progress')>Đang khám (In Progress)</option>
-                            <option value="completed" @selected($selectedStatus === 'completed')>Đã hoàn thành (Completed)</option>
-                            <option value="cancelled" @selected($selectedStatus === 'cancelled')>Đã hủy / Vắng mặt</option>
+                            <option value="checked_in" @selected($selectedStatus === 'checked_in')>Đã tiếp nhận
+                                (Checked-in)</option>
+                            <option value="in_progress" @selected($selectedStatus === 'in_progress')>Đang khám (In
+                                Progress)</option>
+                            <option value="completed" @selected($selectedStatus === 'completed')>Đã hoàn thành (Completed)
+                            </option>
+                            <option value="cancelled" @selected($selectedStatus === 'cancelled')>Đã hủy / Vắng mặt
+                            </option>
                         </select>
                     </div>
 
@@ -151,7 +155,8 @@
                     </div>
                 </form>
 
-                <div class="flex flex-wrap items-center justify-between gap-2 mt-3 pt-3 border-t border-gray-100 text-xs text-gray-500">
+                <div
+                    class="flex flex-wrap items-center justify-between gap-2 mt-3 pt-3 border-t border-gray-100 text-xs text-gray-500">
                     <div class="flex items-center gap-2">
                         <span>Mốc thời gian máy chủ hiện tại:</span>
                         <strong class="font-mono text-gray-800">{{ now()->format('d/m/Y H:i') }}</strong>
@@ -169,8 +174,7 @@
 
             <!-- Thanh chuyển Tab -->
             <div class="flex border-b border-gray-200 gap-2">
-                <button type="button" @click="activeTab = 'daily'"
-                    :class="activeTab === 'daily'
+                <button type="button" @click="activeTab = 'daily'" :class="activeTab === 'daily'
                         ? 'border-amber-600 text-amber-700 bg-white'
                         : 'border-transparent text-gray-500 hover:text-gray-700 bg-gray-50'"
                     class="px-5 py-3 font-bold text-sm border-b-2 rounded-t-xl transition flex items-center gap-2">
@@ -180,8 +184,7 @@
                     </span>
                 </button>
 
-                <button type="button" @click="activeTab = 'affected'"
-                    :class="activeTab === 'affected'
+                <button type="button" @click="activeTab = 'affected'" :class="activeTab === 'affected'
                         ? 'border-rose-600 text-rose-700 bg-white'
                         : 'border-transparent text-gray-500 hover:text-gray-700 bg-gray-50'"
                     class="px-5 py-3 font-bold text-sm border-b-2 rounded-t-xl transition flex items-center gap-2">
@@ -193,11 +196,13 @@
             </div>
 
             <!-- TAB 1: DANH SÁCH LỊCH HẸN TRONG NGÀY -->
-            <div x-show="activeTab === 'daily'" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div x-show="activeTab === 'daily'"
+                class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 @if ($appointments->isEmpty())
                     <div class="p-12 text-center space-y-2">
                         <p class="text-gray-600 font-semibold">Không tìm thấy lịch hẹn nào khớp với bộ lọc hiện tại.</p>
-                        <p class="text-xs text-gray-400">Bạn có thể đổi ngày hẹn hoặc bấm "Xem tất cả các ngày" để tra cứu rộng hơn.</p>
+                        <p class="text-xs text-gray-400">Bạn có thể đổi ngày hẹn hoặc bấm "Xem tất cả các ngày" để tra cứu
+                            rộng hơn.</p>
                     </div>
                 @else
                     <div class="overflow-x-auto">
@@ -243,10 +248,12 @@
                                         <td class="px-4 py-4 align-top">
                                             <div class="font-bold text-gray-900">{{ $appointment->patient?->name }}</div>
                                             <div class="text-xs text-gray-600 mt-0.5">
-                                                CCCD: <span class="font-mono font-semibold text-gray-800">{{ $appointment->patient?->cccd ?? 'Chưa cập nhật' }}</span>
+                                                CCCD: <span
+                                                    class="font-mono font-semibold text-gray-800">{{ $appointment->patient?->cccd ?? 'Chưa cập nhật' }}</span>
                                             </div>
                                             <div class="text-xs text-gray-600">
-                                                SĐT: <span class="font-mono font-semibold text-gray-800">{{ $appointment->patient?->phone ?? 'Chưa cập nhật' }}</span>
+                                                SĐT: <span
+                                                    class="font-mono font-semibold text-gray-800">{{ $appointment->patient?->phone ?? 'Chưa cập nhật' }}</span>
                                             </div>
                                         </td>
 
@@ -278,11 +285,13 @@
                                         <!-- Trạng thái -->
                                         <td class="px-4 py-4 align-top text-center">
                                             @if ($appointment->status === \App\Models\Appointment::STATUS_PENDING)
-                                                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                                                <span
+                                                    class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
                                                     Chờ khám (Pending)
                                                 </span>
                                             @elseif ($appointment->status === \App\Models\Appointment::STATUS_CHECKED_IN)
-                                                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
+                                                <span
+                                                    class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
                                                     Đã tiếp nhận (Checked-in)
                                                 </span>
                                             @elseif ($appointment->status === \App\Models\Appointment::STATUS_IN_PROGRESS)
@@ -290,7 +299,8 @@
                                                     Đang khám (In Progress)
                                                 </span>
                                             @elseif ($appointment->status === \App\Models\Appointment::STATUS_COMPLETED)
-                                                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                                                <span
+                                                    class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
                                                     Đã hoàn thành (Completed)
                                                 </span>
                                             @elseif ($appointment->status === \App\Models\Appointment::STATUS_CANCELLED)
@@ -309,7 +319,7 @@
                                         <td class="px-4 py-4 align-top text-right">
                                             @if ($appointment->status === \App\Models\Appointment::STATUS_PENDING)
                                                 <div class="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-2">
-                                                    @if (! $appointment->is_affected_by_leave && ! $appointment->schedule?->is_day_off)
+                                                    @if (!$appointment->is_affected_by_leave && !$appointment->schedule?->is_day_off)
                                                         <form method="POST"
                                                             action="{{ route('receptionist.appointments.check-in', $appointment) }}"
                                                             onsubmit="return confirm('Xác nhận tiếp nhận (Check-in) cho bệnh nhân {{ $appointment->patient?->name }} ({{ $appointment->appointment_code }})?');">
@@ -354,20 +364,23 @@
             <!-- TAB 2: DANH SÁCH LỊCH HẸN BỊ ẢNH HƯỞNG DO BÁC SĨ NGHỈ ĐỘT XUẤT (UC_R04, LH16) -->
             <div x-show="activeTab === 'affected'" style="display: none;"
                 class="bg-white rounded-xl shadow-sm border border-rose-200 overflow-hidden">
-                <div class="p-4 bg-rose-50 border-b border-rose-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div
+                    class="p-4 bg-rose-50 border-b border-rose-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                         <h3 class="text-sm font-bold text-rose-900">
                             Danh sách lịch hẹn bị ảnh hưởng do Bác sĩ nghỉ đột xuất (UC_R04, LH16)
                         </h3>
                         <p class="text-xs text-rose-700 mt-0.5">
-                            Hệ thống giữ nguyên bản ghi lịch hẹn và gắn cờ cảnh báo để Lễ tân chủ động liên hệ bệnh nhân qua điện thoại hỗ trợ đổi/hủy lịch.
+                            Hệ thống giữ nguyên bản ghi lịch hẹn và gắn cờ cảnh báo để Lễ tân chủ động liên hệ bệnh nhân
+                            qua điện thoại hỗ trợ đổi/hủy lịch.
                         </p>
                     </div>
                 </div>
 
                 @if ($affectedAppointments->isEmpty())
                     <div class="p-12 text-center space-y-2">
-                        <p class="text-gray-600 font-semibold">Hiện không có lịch hẹn nào bị ảnh hưởng bởi ca nghỉ đột xuất.</p>
+                        <p class="text-gray-600 font-semibold">Hiện không có lịch hẹn nào bị ảnh hưởng bởi ca nghỉ đột xuất.
+                        </p>
                     </div>
                 @else
                     <div class="overflow-x-auto">
@@ -405,7 +418,8 @@
                                                 ({{ $affected->doctor?->specialty?->specialty_name }})
                                             </div>
                                             <div class="text-xs text-rose-700 font-semibold mt-0.5">
-                                                Ngày {{ $affected->appointment_date?->format('d/m/Y') }} — Giờ {{ substr((string) $affected->start_time, 0, 5) }}
+                                                Ngày {{ $affected->appointment_date?->format('d/m/Y') }} — Giờ
+                                                {{ substr((string) $affected->start_time, 0, 5) }}
                                             </div>
                                         </td>
                                         <td class="px-4 py-4 text-center">
